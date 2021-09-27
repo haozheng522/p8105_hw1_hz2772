@@ -1,0 +1,5 @@
+---
+title: "hm1"
+output: html_document
+---
+the link of this git is https://github.com/haozheng522/p8105_hw1_hz2772.git.
