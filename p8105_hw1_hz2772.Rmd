@@ -1,5 +1,6 @@
 ---
 title: "hm1"
+Author: Hao Zheng(hz2772)
 output: html_document
 ---
 the link of this git is https://github.com/haozheng522/p8105_hw1_hz2772.git.
@@ -32,4 +33,16 @@ for(i in 1:4){
 
 **The data type of all vectors has transformed to "numeric". The values in the logical vector are the same as before. The values in character vector become "NA". The values in the factor vector become three different numeric according to the original letters. According to the outcomes, I think the mean function can only be applied on data whose values won't be changed if applying as.numeric function on them. Which means mean function cannot be applied on the data whose data type is character or factor.**
 
+**Answer2:**
+```{r,message = FALSE}
+data("penguins", package = "palmerpenguins")
+cat("1) the important variables in the dataset are:",colnames(penguins),"\n")
+cat("2) the size of the dataset is ",nrow(penguins),"*",ncol(penguins),"\n")
+cat("3) the mean of flipper length is ",mean(pull(penguins,name = flipper_length_mm)))
+```
 
+```{r,warning=FALSE}
+hm1_catter_plot = ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+hm1_catter_plot
+ggsave("hm1_scatter_plot.pdf", height = 5, width = 10)
+```
