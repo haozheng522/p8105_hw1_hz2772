@@ -3,3 +3,33 @@ title: "hm1"
 output: html_document
 ---
 the link of this git is https://github.com/haozheng522/p8105_hw1_hz2772.git.
+
+```{r,echo = FALSE, message = FALSE}
+library(tidyverse)
+```
+
+**Answer 1:**
+
+```{r,warning = FALSE}
+hm_data1 = tibble(
+  norm_data = rnorm(10,mean = 0,sd =1),
+  norm_logic0 = c(norm_data > 0),
+  char_vec = c("my","name","is","Hao","and","I","am","happy","everyday","haha"),
+  lev_vec = factor(c("a","b","b","a","c","a","b","b","a","c"),levels = c("a","b","c"))
+)
+for(i in 1:4){
+  print(mean(pull(hm_data1,var=i)))
+}
+```
+
+**The mean can be calculated when the type of data are numeric and logical, while can't be calculated when the type of data is character or factor.**
+
+```{r,warning = FALSE,eval = FALSE}
+for(i in 1:4){
+  as.numeric(pull(hm_data1,var=i))
+}
+```
+
+**The data type of all vectors has transformed to "numeric". The values in the logical vector are the same as before. The values in character vector become "NA". The values in the factor vector become three different numeric according to the original letters. According to the outcomes, I think the mean function can only be applied on data whose values won't be changed if applying as.numeric function on them. Which means mean function cannot be applied on the data whose data type is character or factor.**
+
+
